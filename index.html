@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2>vamos jogar um jogo :)</h2>
+
+      <input
+        type="text"
+        class="input1"
+        id="campo_Dig"
+        placeholder="Adivinhe o numero"
+      />
+      <button onclick="ConfereNumero()" class="botao">Enviar</button>
+
+      <p id="resultado"></p>
+    </div>
+
+    <script>
+      function ConfereNumero(onclick) {
+        const GeraNumeros = Math.floor(Math.random() * 100) + 1;
+        const Palpite = parseInt(document.getElementById("campo_Dig").value);
+
+        if (Palpite === GeraNumeros) {
+          document.getElementById("resultado").innerText =
+            "Parabens voce acertou ";
+        } else if (Palpite < GeraNumeros) {
+          document.getElementById("resultado").innerText =
+            "Ops! Tente um numero maior";
+        } else {
+          document.getElementById("resultado").innerText =
+            "Talvez um numero menor venha a calhar";
+        }
+
+        console.log(GeraNumeros);
+      }
+    </script>
+  </body>
+</html>
